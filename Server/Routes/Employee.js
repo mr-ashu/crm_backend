@@ -60,7 +60,7 @@ app.post("/login", async (req, res) => {
         }
         if (result) {
             const token = jwt.sign({ employeeID: employee._id }, process.env.JWT_SECRET);
-        
+            res.cookie('jwt', token, {httpOnly: true, secure: true, sameSite: "strict"});
             res.status(200).json({ message: "Login successfull", token ,data:employee})
         }
         else {
