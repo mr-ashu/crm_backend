@@ -6,6 +6,7 @@ const { authentication } = require("../AuthMiddleware");
 require("dotenv").config();
 
 
+
 const app = express.Router();
 
 app.get("/", async (req, res) => {
